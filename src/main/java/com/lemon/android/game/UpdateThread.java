@@ -24,9 +24,11 @@ public class UpdateThread extends Thread {
 
     public void run() {
         Canvas c;
+        time = System.currentTimeMillis();
         while (toRun) {
             long cTime = System.currentTimeMillis();
-            if ((cTime - time) <= (1000 / fps)) {
+            if ((cTime - time) >= (1000 / fps)) {//control draw time period.
+                //circle move each 50ms.
                 c = null;
                 try {
                     c = surfaceHolder.lockCanvas(null);
@@ -37,8 +39,8 @@ public class UpdateThread extends Thread {
                         surfaceHolder.unlockCanvasAndPost(c);
                     }
                 }
+                time = cTime;
             }
-            time = cTime;
         }
     }
 }

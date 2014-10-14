@@ -18,6 +18,7 @@ public class HelloAndroidActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
+        //input a new instance of MovementView instead of using a layout xml file.
         setContentView(new MovementView(this));
     }
 

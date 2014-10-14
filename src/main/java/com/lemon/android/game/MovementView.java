@@ -11,6 +11,8 @@ import android.view.SurfaceView;
 /**
  * Created by limeng0402 on 14-10-14.
  */
+// SurfaceView is used as a draw container, can use it to draw UI in another thread.
+// SurfaceView contains a Surface object, which can be used to draw in the background thread.
 public class MovementView extends SurfaceView implements SurfaceHolder.Callback {
     private int xPos;
     private int yPos;
@@ -28,8 +30,9 @@ public class MovementView extends SurfaceView implements SurfaceHolder.Callback 
         circleRadius = 20;
         circlePaint = new Paint();
         circlePaint.setColor(Color.BLUE);
-        xVel = 5;
-        yVel = 5;
+        //control move speed.
+        xVel = 5;//move speed on x position.
+        yVel = 5;//move speed on y position.
     }
 
     protected void onDraw(Canvas canvas) {
